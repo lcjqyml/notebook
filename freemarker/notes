@@ -1,0 +1,44 @@
+普通逻辑判断是这样的：
+<#if name == 'a'>
+...
+<#elseif name  == 'b'>
+...
+<#elseif name == 'c'>
+......
+<#else>
+...
+</#if>
+
+空值判断是这样的：
+<#if name ?? >
+...
+<#else>
+...
+</#if>
+
+普通逻辑判断再加上空值判断就是这样的了：
+<#if name ?? && name == 'a'>
+...
+<#else>
+...
+</#if>
+
+循环读取
+<#list sequence as item>
+...
+</#list>
+
+日期格式：
+${book.date?string('yyyy-MM-dd')}
+
+插入布尔值：
+<#assign foo=ture />
+${foo?string("yes","no")} <#-- yes -->
+
+
+引入其他模板：
+<#include './head.ftl'>
+
+引入context变量：
+<#assign basePath=springMacroRequestContext.contextPath >
+<base href="${basePath}/">

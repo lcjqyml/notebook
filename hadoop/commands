@@ -1,0 +1,4 @@
+hadoop fs -mkdir /user/th
+hadoop fs -copyFromLocal    xxx文件夹   /user/th/
+hadoop fs -rm -r /user/th/
+hadoop fs -copyToLocal   /user/th/

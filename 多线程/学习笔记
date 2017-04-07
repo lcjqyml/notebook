@@ -1,0 +1,1 @@
+SimpleDateFormat 作为静态工具类存在时, 由于内部保存一个Calendar引用, 所以存在线程不安全问题, 可以使用ThreadLocal解决也可以使用org.apache.commons.lang3.time.DateUtils和org.apache.commons.lang3.time.DateFormatUtils解决.

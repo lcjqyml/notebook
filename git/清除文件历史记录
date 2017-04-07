@@ -1,0 +1,3 @@
+# 执行以下命令可以清除指定目录Docs/git历史记录
+    git filter-branch -f --index-filter 'git rm -r --cached --ignore-unmatch Docs/IDE' HEAD
+    git push origin master --force

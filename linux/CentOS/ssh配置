@@ -1,0 +1,1 @@
+/etc/hosts.all/etc/hosts.allow和/etc/hosts.deny两个文件是控制远程访问设置的，通过他可以允许或者拒绝某个ip或者ip段的客户访问linux的某项服务。ow和/etc/hosts.deny两个文件是控制远程访问设置的，通过他可以允许或者拒绝某个ip或者ip段的客户访问linux的某项服务。

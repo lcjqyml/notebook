@@ -1,0 +1,9 @@
+1，登录选系统界面点击e
+2，找到Linux 16的那一行，将ro改为rw init=/sysroot/bin/sh
+3，Control+x ，使用单用户模式启动
+4修改：
+    chroot /sysroot
+    passwd root
+    touch /.autorelabel
+    exit
+    reboot

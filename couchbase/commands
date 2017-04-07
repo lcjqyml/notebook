@@ -1,0 +1,1 @@
+导出: /opt/couchbase/bin/cbbackup http://10.0.68.49:8091 /data/couchbase/backup/brighttag-`date '+%G%m%d'` --username=Administrator --password=N0S914C0uch8@s3 --threads=8 --bucket-source=brighttag --extra=batch_max_size=10000 -v

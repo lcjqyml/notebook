@@ -1,0 +1,58 @@
+du –sh [filepath]   		检测filepath硬盘占用量 用于看文件
+df –h					检测分区情况 用于看磁盘
+ls –lshSr					按行列出文件并以大小从小到大排列
+grep –na “str” filepath 		查询filepath中包含str的行并标出行号
+zgrep –na “str” filepath		grep进化版，能直接查询gz压缩格式文件
+cat filepath				查询文件内容
+zcat filepath				cat进化版，查询gz格式的文件内容
+tail –n 100 filepath			查询filepath最后100行内容
+tail –f filepath				查看追加的内容
+vi filepath				编辑文件filepath
+	J						合并下行
+	o						在下面插一样
+	ctrl + f 下一页
+	ctrl + b 上一页
+sed –n ‘2,3p’ filename		查询filename第2~3行内容
+
+/usr/java/latest/bin/jstat –gcutil -h10 pid time:  查看jvm gc情况，pid为进程id，time为刷新时间(ms)， 每十行显示head信息
+
+查看进程信息： ps -ef | grep java
+下载json文件：
+wget --header='Accept: application/json' --limit-rate=500k http://10.0.66.182:8080/gbox/gb/s/data/get-by-alt-key/uvdsku?parentpartnumber=UVD1196684012P -O /data/batchdata/spinproduct/test_UVD1196684012P.downloading.json
+
+查看grep命令在哪个目录： which grep
+
+命令帮助：
+--help
+help ls
+man ls
+Info ls
+
+别名，临时的，重启就没了：alias ll=’ls -l’
+
+显示 401到500行
+ cat -n /etc/services | head -500 | tail -100
+ cat -n /etc/services | sed -n ‘401, 500p’
+
+touch /etc/services不存在则新建空文件。
+touch -d ‘2014-10-03 00:00:00’ /etc/services 改变文件最后修改的时间
+
+cat -n /etc/passwd | grep --color=auto ‘chuan’  查询包含chuan的行，并高亮显示匹配的字符，显示行号
+
+more /etc/services 可以逐页的看文本
+less /etc/services可以支持上下，pagedown pageup, 空格
+
+Watch 监视命令
+打包压缩为data.tar.bz2 ：tar -jcvf data.tar.bz2 data*
+
+Uptime 监控io的负载
+
+检测当前文件夹使用情况 du -h --max-depth=1
+
+Scp 超级复制， scp local_file remote_username@remote_ip:remote_folder scp /data/jenkins/workspace/fx.commons/commons/fx-commons-db/target/fx-commons-db.jar fxsoft@10.0.2.7:/data/tmp/onion-tasks/fx-commons-db/fx-commons-db.jar
+
+远程命令:
+ssh -t 10.0.2.7 -l fxsoft "rm -rf /data/tmp/onion-tasks/fx-commons-db/"
+ssh -t 10.0.2.7 -l fxsoft "mkdir /data/tmp/onion-tasks/fx-commons-db/"
+
+添加信任： ssh-keygen -t rsa

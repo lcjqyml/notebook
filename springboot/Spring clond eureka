@@ -1,0 +1,1 @@
+Maven若引入了spring-cloud-starter-eureka-server，rest接口会默认返回XML数据，若要回避此特性需要exclusion jackon-dataformat-xml

@@ -1,0 +1,8 @@
+如果没有超管密码，查找超级管理员密码方法：
+1、用光猫背后的useradmin 帐号和密码登录 192.168.1.1
+2、然后下载http://192.168.1.1/backupsettings.conf
+3、用记事本打开，找到telecomadmin+8位数，这个就是你光猫telecomadmin的密码。
+4、打开 http://192.168.1.1/updatesettings.html 页面，用超级管理员用户名telecomadmin和查找到的密码登陆。
+
+中兴F412: Telnet 密码 root/root 或者 root/Zte521
+sendcmd 1 DB p UserInfo / sendcmd 1 DB p DevAuthInfo

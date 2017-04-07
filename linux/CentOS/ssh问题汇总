@@ -1,0 +1,22 @@
+1,如何修复“sshd error: could not load host key”
+    service sshd status -l 查看服务状态及相关日志
+    当OpenSSH服务器第一次安装到Linux系统时，SSH主机密钥应该会自动生成以供后续使用。如果，不管怎样，密钥生成过程没有成功完成，那就会导致这样的SSH登录问题
+    如果SSH主机密钥在/ect/ssh/找不到，或者它们的大小被截断成为0,需要从头开始重新生成主机密钥。
+    在CentOS、RHEL或Fedora上，你所要做的是，删除现存（有问题的）密钥，然后重启sshd服务。
+2,输入正确密码依旧不能登录，日志显示 禁止了 UID 小于 1000 的用户进行登录。
+    PAM 相关模块策略配置，禁止了 UID 小于 1000 的用户进行登录。
+    通过 cat 等指令查看异常登录模式，对应的 PAM 配置文件。说明如下：
+    文件	功能说明
+    /etc/pam.d/login	控制台（管理终端）对应配置文件
+    /etc/pam.d/sshd	登录对应配置文件
+    /etc/pam.d/system-auth	系统全局配置文件
+    检查前述配置文件中，是否有类似如下配置信息：
+    auth        required      pam_succeed_if.so uid >= 1000
+    使用 vi 等编辑器，修改相应配置文件中的上述配置，或者整个删除或注释（在最开头添加 # 号）整行配置，比如：
+    auth        required      pam_succeed_if.so uid <= 1000      # 修改策略
+    # auth        required      pam_succeed_if.so uid >= 1000   #取消相关配置
+
+3，依旧不能登录，查看 /var/log/secure显示 unix_checkpwd[]: password check failed for user
+
+    最终解决方案： 重置密码之后就行了。。。passwd user
+    出现新问题：ssh能登录，却不能直接登录。。。

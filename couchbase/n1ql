@@ -1,0 +1,1 @@
+分页查询: SELECT name, brewery_id from `beer-sample` WHERE brewery_id IS NOT MISSING LIMIT 5 OFFSET 5;

@@ -1,0 +1,19 @@
+Hive 常用命令：
+启动 metastore： hive --service metastore;
+
+创建数据库：
+    hive> create database mobd;
+
+创建数据表:
+    hive> create table mobd.user_location(time String, phone String, lac_ci String)
+        > comment 'user location converted'
+        > row format delimited
+        > fields terminated by '\t'
+        > lines terminated by '\n';
+
+加载数据到表：
+    hive> load data local inpath '/data/tmp/demo.csv' into table tb_nl_http_event_mi;
+
+查看表结构：
+    hive> desc formatted tb_nl_http_event_mi;
+
